@@ -1,0 +1,6 @@
+torch
+streamlit
+spacy
+re
+subprocess
+sys
