@@ -1,6 +1,5 @@
-torch
 streamlit
-spacy
-re
-subprocess
-sys
+pandas
+numpy
+scipy
+plotly
