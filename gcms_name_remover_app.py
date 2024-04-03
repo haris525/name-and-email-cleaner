@@ -2,7 +2,7 @@ import streamlit as st
 import spacy
 
 # Load the spaCy model
-nlp = spacy.load("en_core_web_trf")
+nlp = spacy.load("en_core_web_sm")
 
 PLACEHOLDER = "[NAME REMOVED]"
 
