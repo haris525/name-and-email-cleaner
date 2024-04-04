@@ -3,7 +3,7 @@ import spacy
 import re
 
 # Load the spaCy model
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 PLACEHOLDER = "[NAME REMOVED]"
 
