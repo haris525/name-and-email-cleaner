@@ -19,7 +19,7 @@ def remove_names(text):
     return text
 
 def clean_text(text):
-     """
+    """
     Cleans the text by removing URLs, hyperlinks, Markdown image references,
     HTML <img> tags, emails, mailto links, text within square brackets, dangling brackets,
     and any leftover angle brackets. This version aims to ensure no leftover brackets remain.
