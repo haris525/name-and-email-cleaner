@@ -37,6 +37,7 @@ def clean_text(text):
     text = re.sub(r'\[$', '', text)
     # Remove any leftover angle brackets
     text = re.sub(r'<[^>]*>', '', text)  # Removes content within angle brackets and the brackets themselves
+    text = re.sub(r'\[.*?\]', '', text)
     return text
 
 def remove_names(text):
