@@ -97,6 +97,17 @@ nlp = spacy.load("en_core_web_lg")
 
 PLACEHOLDER = "[NAME REMOVED]"
 
+def remove_names(text):
+    # Process the text through spaCy to find named entities
+    doc = nlp(text)
+    # Iterate over detected entities in reverse order to avoid indexing issues when replacing
+    for ent in reversed(doc.ents):
+        # Check if the entity is a person's name
+        if ent.label_ == "PERSON":
+            # Replace the entity with the placeholder
+            text = text[:ent.start_char] + PLACEHOLDER + text[ent.end_char:]
+    return text
+
 def clean_text(text):
     """
     Cleans the text by removing URLs, hyperlinks, Markdown image references,
