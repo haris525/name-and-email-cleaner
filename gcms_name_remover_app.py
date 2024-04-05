@@ -1,10 +1,9 @@
 import streamlit as st
 import spacy
-import spacy_transformers
 import re
 
 # Load the spaCy model
-nlp = spacy.load("en_core_web_trf")
+nlp = spacy.load("en_core_web_md")
 
 PLACEHOLDER = "[NAME REMOVED]"
 
