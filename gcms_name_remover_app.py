@@ -1,5 +1,6 @@
 import streamlit as st
 import spacy
+import spacy_transformers
 import re
 
 # Load the spaCy model
