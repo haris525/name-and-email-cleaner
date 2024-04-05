@@ -19,25 +19,21 @@ def remove_names(text):
     return text
 
 def clean_text(text):
-    """
+     """
     Cleans the text by removing URLs, hyperlinks, Markdown image references,
     HTML <img> tags, emails, mailto links, text within square brackets, dangling brackets,
-    and any leftover angle brackets.
+    and any leftover angle brackets. This version aims to ensure no leftover brackets remain.
     """
     text = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text)
     text = re.sub(r'www\.(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text)
     text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
     text = re.sub(r'<img.*?>', '', text)
     text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '', text)
-    # Remove "mailto:" links and any following email address.
     text = re.sub(r'mailto:[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}', '', text)
-    # Improved removal for mailto links without specifying the email directly after mailto:
-    text = re.sub(r'mailto:[^\s>]*', '', text)  # Removes mailto: followed by any character that is not a space or '>'
-    text = re.sub(r'\[.*?\]', '', text)
-    text = re.sub(r'\[$', '', text)
-    # Remove any leftover angle brackets
-    text = re.sub(r'<[^>]*>', '', text)  # Removes content within angle brackets and the brackets themselves
-    text = re.sub(r'\[.*?\]', '', text)
+    text = re.sub(r'mailto:[^\s>]*', '', text)
+    text = re.sub(r'\[.*?\]', '', text)  # Updated to remove content within brackets more effectively
+    text = re.sub(r'\[$', '', text)  # Removes dangling open bracket at the end of the text
+    text = re.sub(r'<[^>]*>', '', text)
     return text
 
 def remove_names(text):
